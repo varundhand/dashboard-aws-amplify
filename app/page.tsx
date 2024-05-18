@@ -5,11 +5,20 @@ import {
   WithAuthenticatorProps,
   withAuthenticator,
 } from "@aws-amplify/ui-react";
+import { Heading } from "@aws-amplify/ui-react";
+import { Amplify } from 'aws-amplify';
+import '@aws-amplify/ui-react/styles.css';
+import config from './amplifyconfiguration.json';
 
-export function Home() {
+
+Amplify.configure(config);
+
+console.log('config', config)
+
+export function Home({ signOut, user }: WithAuthenticatorProps) {
   return (
     <>
-      Home Page
+      <Heading level={1}>Welcome to the Dashboard App</Heading>
     </>
   );
 }
